@@ -1,27 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, SafeAreaView, Alert, Button } from 'react-native';
 
 export default function App() {
 
   const handlePress = () => {
-    console.log('Tapping image');
+    Alert.alert("My title", "My message", [
+        {text: "Yes"},
+        {text: "No"},
+        {text: "Not sure"},
+        {text: "Interesting", onPress: function() { console.log('interesting!!!!') }}
+    ]);
+
+    Alert.prompt('Hello', 'Hi there', (text) => { console.log(text)});
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text onPress={handlePress}>
-        Hello
-      </Text>
-      <TouchableHighlight onPress={handlePress}>
-        <Image
-            source={{
-              width: 200,
-              height: 300,
-              uri: "https://picsum.photos/200/300"
-            }}
-        />
-      </TouchableHighlight>
+        <Button title="Click Me" onPress={handlePress} color="orange"/>
     </SafeAreaView>
   );
 }
