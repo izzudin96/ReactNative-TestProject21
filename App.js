@@ -6,7 +6,9 @@ import Login from "./app/screens/Login";
 
 export default function App() {
   return (
-    
+      <SafeAreaView style={styles.container}>
+        <Login/>
+      </SafeAreaView>
   );
 }
 
